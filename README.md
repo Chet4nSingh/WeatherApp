@@ -7,6 +7,17 @@
 - **API:** OpenWeatherMap API
 - **Icons:** React Icons
 
+## Features
+
+✅ **Live Weather Data** - Get real-time weather updates for any location.  
+✅ **5-Day Forecast** - View upcoming weather trends.  
+✅ **Recent Search History** - Track the last 5 searched cities.  
+✅ **Dark/Light Theme** - Switch between themes effortlessly by clicking the icons ☀️/☾ on the top left corner of the dashboard.
+✅ **Refresh Button** - Re-fetch the latest weather data for the selected city.  
+✅ **Smooth Animations** - Built using **Framer Motion** for a polished UI.  
+✅ **Loading Indicator** - Displays a loader while fetching data.  
+✅ **Mobile-Friendly UI** - Fully responsive design. 
+
 ## Setup Instructions
 
 ### 1. Clone the repository
