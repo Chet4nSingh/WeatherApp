@@ -7,6 +7,7 @@ import Error from "./Error";
 import axios from "axios";
 import Loader from "./Loader";
 import Forecast from "./Forecast";
+import Fallback from "./Fallback";
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 
@@ -106,6 +107,7 @@ function Dashboard() {
         <main className="mt-16">
           {loading && <Loader />}
           {error && <Error message={error} />}
+          {!city && !loading && !error && <Fallback />}
           {city && <Card city={city} />}
           {forecast && <Forecast forecast={forecast.list} />}
         </main>
