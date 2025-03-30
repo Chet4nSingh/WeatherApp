@@ -73,7 +73,7 @@ function Dashboard() {
     <>
       <div
         id="dashboard"
-        className={`text-sky-900 px-16 pb-16 min-h-screen bg-gradient-to-tl from-slate-400 to-slate-100 dark:text-white dark:bg-gradient-to-tr dark:from-slate-500 dark:to-slate-900 ${
+        className={`text-sky-900 px-16 pb-40 min-h-screen bg-gradient-to-tl from-slate-400 to-slate-100 dark:text-white dark:bg-gradient-to-tr dark:from-slate-500 dark:to-slate-900 ${
           isDark ? "dark" : ""
         }`}
       >
@@ -114,7 +114,7 @@ function Dashboard() {
         <motion.div
           style={{
             scaleX: scrollYProgress,
-            backgroundColor: "whitesmoke",
+            backgroundColor: "#333",
             transformOrigin: "left",
             height: "1rem",
             position: "sticky",

@@ -1,5 +1,5 @@
 import React from "react";
-import Overlay from "./Overlay";
+import { motion } from "framer-motion";
 
 function Forecast({ forecast }) {
   const dailyForecast = [];
@@ -14,10 +14,22 @@ function Forecast({ forecast }) {
     }
   });
   return (
-    <Overlay classes="px-8 mt-16">
+    <motion.div
+      variants={{
+        hidden: {},
+        visible: { transition: { staggerChildren: 0.3 } },
+      }}
+      initial="hidden"
+      whileInView="visible"
+      className="bg-sky-950/40 dark:bg-slate-100/10 px-8 mt-16"
+    >
       {dailyForecast.map((day, index) => {
         return (
-          <div
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, x: -30 },
+              visible: { opacity: 1, x: 0 },
+            }}
             key={day.dt}
             className={`w-full text-2xl ${
               index + 1 !== dailyForecast.length && "border-b border-white"
@@ -35,10 +47,10 @@ function Forecast({ forecast }) {
             />
             <p>{day.main.temp.toFixed(1)}°C</p>
             <p className="hidden sm:block">{day.weather[0].description}</p>
-          </div>
+          </motion.div>
         );
       })}
-    </Overlay>
+    </motion.div>
   );
 }
 
