@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion, useScroll } from "framer-motion";
 import SearchBar from "./SearchBar";
 import Card from "./Card";
+import Error from "./Error";
 
 import axios from "axios";
 import Loader from "./Loader";
@@ -25,7 +26,7 @@ function Dashboard() {
     setError("");
     try {
       const { data } = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`
       );
 
       setCity(data);
@@ -35,11 +36,13 @@ function Dashboard() {
       ]);
 
       const forecastData = await axios.get(
-        `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}`
+        `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${API_KEY}`
       );
       setForecast(forecastData.data);
     } catch (err) {
-      setError("City not found. Please try again.");
+        setError('Could not fetch data.')
+      setCity(null);
+      setForecast(null);
     } finally {
       setLoading(false);
     }
@@ -47,7 +50,7 @@ function Dashboard() {
 
   async function refetch() {
     if (!city)
-      return alert(
+      return setError(
         "No value found to refetch! Try searching for a city first."
       );
 
@@ -60,7 +63,7 @@ function Dashboard() {
       );
       setCity(data);
     } catch (err) {
-      setError("City not found. Please try again.");
+      setError(err.response.statusText);
     } finally {
       setLoading(false);
     }
@@ -91,7 +94,7 @@ function Dashboard() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
             >
-              Weather App
+              Weather Sync
             </motion.span>
           </h1>
           <SearchBar
@@ -102,7 +105,7 @@ function Dashboard() {
         </header>
         <main className="mt-16">
           {loading && <Loader />}
-          {error && <p className="text-4xl">{error}</p>}
+          {error && <Error message={error} />}
           {city && <Card city={city} />}
           {forecast && <Forecast forecast={forecast.list} />}
         </main>

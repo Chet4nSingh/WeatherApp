@@ -20,7 +20,7 @@ function Card({ city }) {
           <p className="hidden sm:block text-6xl font-bold">{city.weather[0].main}</p>
         </div>
         <div>
-          <p className="text-7xl sm:text-9xl font-bold mb-8">{city.main.temp}°</p>
+          <p className="text-7xl sm:text-9xl font-bold mb-8">{city.main.temp}°C</p>
           <p className="text-3xl sm:text-4xl text-center lg:text-left font-bold">
             feels like {city.main.feels_like}°
           </p>
