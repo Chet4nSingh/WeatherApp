@@ -25,7 +25,7 @@ function SearchBar({ fetchCity, refetch, history }) {
     <div className="flex flex-nowrap">
       <button
         onClick={handleRefresh}
-        className="text-4xl text-sky-950 dark:text-white mr-4 cursor-pointer"
+        className="text-3xl text-sky-950 dark:text-white mr-4 cursor-pointer px-3 py-2 rounded-full hover:bg-slate-800/10 dark:hover:bg-slate-100/10"
       >
         <FiRefreshCcw />
       </button>
