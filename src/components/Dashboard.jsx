@@ -1,10 +1,10 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { motion, useScroll } from "framer-motion";
+
 import SearchBar from "./SearchBar";
 import Card from "./Card";
 import Error from "./Error";
-
-import axios from "axios";
 import Loader from "./Loader";
 import Forecast from "./Forecast";
 import Fallback from "./Fallback";
@@ -41,7 +41,7 @@ function Dashboard() {
       );
       setForecast(forecastData.data);
     } catch (err) {
-        setError('Could not fetch data.')
+      setError("Could not fetch data.");
       setCity(null);
       setForecast(null);
     } finally {

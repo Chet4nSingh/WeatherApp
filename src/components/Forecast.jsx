@@ -17,7 +17,7 @@ function Forecast({ forecast }) {
     <motion.div
       variants={{
         hidden: {},
-        visible: { transition: { staggerChildren: 0.3 } },
+        visible: { transition: { staggerChildren: 0.1 } },
       }}
       initial="hidden"
       whileInView="visible"

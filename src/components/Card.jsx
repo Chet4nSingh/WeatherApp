@@ -1,6 +1,7 @@
 import React from "react";
-import DetailCard from "./DetailCard";
 import { motion } from "framer-motion";
+
+import DetailCard from "./DetailCard";
 
 function Card({ city }) {
   return (
@@ -56,7 +57,7 @@ function Card({ city }) {
           visible: {
             opacity: 1,
             y: 0,
-            transition: { staggerChildren: 0.3, duration: 0.5 },
+            transition: { staggerChildren: 0.1, duration: 0.5 },
           },
         }}
         initial="hidden"

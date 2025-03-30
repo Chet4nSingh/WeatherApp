@@ -1,4 +1,5 @@
 import compassImg from "/compass.svg";
+
 import React from "react";
 
 function Fallback() {
