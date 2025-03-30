@@ -75,7 +75,7 @@ function Dashboard() {
         }`}
       >
         <header className="py-8 flex flex-col gap-16 lg:flex-row lg:gap-0 justify-between items-center ">
-          <h1 className="text-7xl text-nowrap flex gap-4 justify-center items-center font-bold">
+          <h1 className="text-5xl sm:text-7xl text-nowrap flex flex-col sm:flex-row gap-4 justify-center items-center font-bold">
             <button
               className="cursor-pointer"
               onClick={() => setIsDark((prev) => !prev)}

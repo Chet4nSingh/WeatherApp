@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { FiRefreshCcw } from "react-icons/fi";
+import { FaSearch } from "react-icons/fa";
+
 import History from "./History";
 
 function SearchBar({ fetchCity, refetch, history }) {
@@ -47,7 +49,7 @@ function SearchBar({ fetchCity, refetch, history }) {
         onClick={handleFetchCity}
         className="cursor-pointer px-4 py-2 border-b-2 border-sky-900 text-2xl bg-sky-900 hover:bg-sky-950 transition duration-100 active:bg-sky-800 text-white dark:bg-white dark:text-slate-800 dark:border-white"
       >
-        Search
+        <FaSearch />
       </button>
     </div>
   );

@@ -25,7 +25,7 @@ function History({ history, fetchCity }) {
               }}
               onClick={() => fetchCity(city)}
               key={index}
-              className="p-4 border-b border-slate-400 text-left dark:text-sky-950"
+              className={`p-4 ${index + 1 < history.length && "border-b border-slate-400"} text-left dark:text-sky-950`}
             >
               {city}
             </motion.button>

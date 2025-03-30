@@ -17,11 +17,11 @@ function Card({ city }) {
             className="scale-160"
             src={`https://openweathermap.org/img/wn/${city.weather[0].icon}@4x.png`}
           />
-          <p className="text-6xl font-bold">{city.weather[0].main}</p>
+          <p className="hidden sm:block text-6xl font-bold">{city.weather[0].main}</p>
         </div>
         <div>
-          <p className="text-9xl font-bold">{city.main.temp}°</p>
-          <p className="text-4xl text-center lg:text-left font-bold">
+          <p className="text-7xl sm:text-9xl font-bold mb-8">{city.main.temp}°</p>
+          <p className="text-3xl sm:text-4xl text-center lg:text-left font-bold">
             feels like {city.main.feels_like}°
           </p>
         </div>
@@ -31,13 +31,8 @@ function Card({ city }) {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-8">
         <DetailCard label="Humidity">{city.main.humidity}%</DetailCard>
         <DetailCard label="Wind Speed">{city.wind.speed} m/s</DetailCard>
-        <DetailCard label="Visibility">{city.visibility}</DetailCard>
-        <DetailCard label="Pressure">{city.main.pressure}</DetailCard>
-      </div>
-
-      {/* 5 Day / 3 hour */}
-      <div>
-
+        <DetailCard label="Visibility">{city.visibility / 1000} km</DetailCard>
+        <DetailCard label="Pressure">{city.main.pressure} mb</DetailCard>
       </div>
     </div>
   );

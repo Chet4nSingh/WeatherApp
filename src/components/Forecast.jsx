@@ -14,23 +14,30 @@ function Forecast({ forecast }) {
     }
   });
   return (
-    <Overlay classes="px-8">
-      {dailyForecast.map((day) => (
-        <div
-          key={day.dt}
-          className={
-            "w-full text-2xl border-b border-white text-white grid grid-cols-4 items-center"
-          }
-        >
-          <p>{new Date(day.dt_txt).toLocaleDateString()}</p>
-          <img
-            src={`https://openweathermap.org/img/wn/${day.weather[0].icon}@4x.png`}
-            className="w-40"
-          />
-          <p>{day.main.temp.toFixed(1)}°C</p>
-          <p>{day.weather[0].description}</p>
-        </div>
-      ))}
+    <Overlay classes="px-8 mt-16">
+      {dailyForecast.map((day, index) => {
+        return (
+          <div
+            key={day.dt}
+            className={`w-full text-2xl ${
+              index + 1 !== dailyForecast.length && "border-b border-white"
+            } text-white grid grid-cols-3 sm:grid-cols-4 items-center`}
+          >
+            <p>
+              {new Date(day.dt_txt).toLocaleDateString("en-US", {
+                weekday: "short",
+                day: "2-digit",
+              })}
+            </p>
+            <img
+              src={`https://openweathermap.org/img/wn/${day.weather[0].icon}@4x.png`}
+              className="w-40"
+            />
+            <p>{day.main.temp.toFixed(1)}°C</p>
+            <p className="hidden sm:block">{day.weather[0].description}</p>
+          </div>
+        );
+      })}
     </Overlay>
   );
 }
