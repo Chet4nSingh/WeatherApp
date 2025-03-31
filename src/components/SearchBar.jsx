@@ -5,14 +5,14 @@ import { FaSearch } from "react-icons/fa";
 
 import History from "./History";
 
-function SearchBar({ fetchCity, refetch, history }) {
+function SearchBar({ fetchCity, refetch, history, onError }) {
   const [city, setCity] = useState("");
   const [showHistory, setShowHistory] = useState(false);
 
   function handleFetchCity() {
     if (city.trim() !== "") fetchCity(city);
     else {
-      alert("Please enter a valid city name");
+      onError("Please enter a valid city name.");
     }
     setCity("");
   }

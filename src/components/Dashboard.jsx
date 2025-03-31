@@ -102,6 +102,7 @@ function Dashboard() {
             fetchCity={fetchWeatherDetails}
             refetch={refetch}
             history={history}
+            onError={setError}
           />
         </header>
         <main className="mt-16">
